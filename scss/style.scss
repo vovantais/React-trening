@@ -1,0 +1,228 @@
+@import "_variable";
+// Null-style
+@import "_null.scss";
+// Adartive text
+@import "_textmixin";
+// Шрифты подключаем
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap");
+
+.wrapper {
+   min-height: 100%; // чтобы была на всю высоту экрана
+   overflow: hidden; // чтобы не чего не вылезло за наш экран
+   display: flex;
+   flex-direction: column;
+}
+.container {
+   max-width: 1250px;
+   padding: 0px 15px;
+   margin: 0 auto;
+}
+.content {
+   flex: 1 1 auto; // разрешаем увеличиваться для того что бы прижал футер
+}
+.hed {
+   background: #f6f2f2;
+   width: 100%;
+   height: 700px;
+}
+.header {
+   background: $HeaderBg;
+   width: 100%;
+   height: 85px;
+   &__body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   &__list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 85px;
+      @include adaptiv-font(22, 20);
+      text-transform: uppercase;
+      a {
+         color: $LinkHeaderColor;
+         padding: 0px 30px;
+         display: block;
+         letter-spacing: 1.4px;
+         transition: background 0.4s ease 0.2s;
+         &:hover {
+            background: $LinkBg;
+         }
+      }
+   }
+   &__toggle {
+      display: none;
+   }
+}
+.organaisation {
+   padding: 110px 0px 110px 0px;
+   &__body {
+      display: flex;
+      justify-content: space-between;
+   }
+   &__title {
+      @include adaptiv-font(50, 20);
+      max-width: 600px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 3.2px;
+      margin: 0px 0px 40px 0px;
+   }
+   &__text {
+      @include adaptiv-font(20, 16);
+      letter-spacing: 1.4px;
+      max-width: 600px;
+      color: $TextColor;
+      margin: 0px 0px 60px 0px;
+   }
+   &__btn {
+      display: block;
+      width: 225px;
+      height: 50px;
+      background: $LinkBg;
+      text-align: center;
+      line-height: 50px;
+      text-transform: uppercase;
+      @include adaptiv-font(18, 16);
+      letter-spacing: 2px;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: all 0.3s linear 0.2s;
+      &:hover {
+         box-shadow: 0 0 10px;
+         background: $LinkBgHover;
+      }
+      a {
+         color: $LinkHeaderColor;
+         display: block;
+      }
+   }
+   &__image {
+      background: url(../img/work.jpg) no-repeat;
+      max-width: 100%;
+      background-size: cover;
+      background-position: center;
+      width: 600px;
+      height: 335px;
+   }
+}
+
+.footer {
+   width: 100%;
+   background: $HeaderBg;
+   height: 110px;
+   &__row {
+   }
+   &__body {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+   }
+   &__item {
+      display: flex;
+   }
+   &__text {
+      line-height: 110px;
+      color: $TextColor;
+      letter-spacing: 1.8px;
+   }
+   &__icon {
+      display: flex;
+   }
+   &__link {
+      width: 50px;
+   }
+}
+.link__twitter {
+   background: url(../img/Twitter.png) no-repeat;
+   background-size: 100%;
+   background-position: center;
+   width: 40px;
+   height: 40px;
+   display: inline-block;
+   transition: box-shadow 0.3s ease-in 0.2s;
+   &:hover {
+      box-shadow: 0 0 10px rgba(255, 247, 247, 0.5);
+   }
+}
+.link__linkeId {
+   background: url(../img/LinkedIn.png) no-repeat;
+   background-size: 100%;
+   background-position: center;
+   width: 40px;
+   height: 40px;
+   display: inline-block;
+   transition: box-shadow 0.3s ease-in 0.2s;
+   &:hover {
+      box-shadow: 0 0 10px rgba(255, 247, 247, 0.5);
+   }
+}
+.link__google {
+   background: url(../img/Google.png) no-repeat;
+   background-size: 100%;
+   background-position: center;
+   width: 40px;
+   height: 40px;
+   display: inline-block;
+   transition: box-shadow 0.3s ease-in 0.2s;
+   &:hover {
+      box-shadow: 0 0 10px rgba(255, 247, 247, 0.5);
+   }
+}
+.link__facebook {
+   background: url(../img/Facebook.png) no-repeat;
+   background-size: 100%;
+   background-position: center;
+   width: 40px;
+   height: 40px;
+   display: inline-block;
+   transition: box-shadow 0.3s ease-in 0.2s;
+   &:hover {
+      box-shadow: 0 0 10px rgba(255, 247, 247, 0.5);
+   }
+}
+@media (max-width: 780px) {
+   .header__menu {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: $HeaderBg;
+      overflow: auto;
+      transform: translate(0, -100%);
+      transition: transform 0.3s linear 0.2s;
+      &.active {
+         transform: translate(0, 0);
+      }
+   }
+   .header__list {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 0px 0px 0px;
+      li {
+         padding: 0px 0px 20px 0px !important;
+      }
+      a {
+         color: $LinkHeaderColor;
+      }
+   }
+   .header__toggle {
+      display: block;
+      color: $LinkHeaderColor;
+      @include adaptiv-font(40, 44);
+      z-index: 50;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+   }
+}
+@media (max-width: 780px) {
+   body.lock {
+      overflow: hidden; // запрет скрола при открытом меню
+   }
+}
